@@ -1,27 +1,45 @@
-import requests
+"""
+AccuKnox AI/ML Assignment
+Problem Statement 1: API Data Retrieval and Storage
+
+This script:
+1. Tries to fetch book data from an external API
+2. Falls back to simulated data if API is unavailable
+3. Stores data into a local SQLite database
+"""
+
 import sqlite3
+import requests
 
-# Assumption:
-# Real API may not be accessible, so fallback simulated data is used
-API_URL = "https://example.com/api/books"
-DB_PATH = "database/accuknox.db"
+# -----------------------------
+# CONFIG
+# -----------------------------
+API_URL = "https://example.com/api/books"  # Dummy API (fallback will be used)
+DB_PATH = "accuknox.db"
 
-
+# -----------------------------
+# DATABASE SETUP
+# -----------------------------
 def create_table(cursor):
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS books (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            title TEXT,
-            author TEXT,
+            title TEXT NOT NULL,
+            author TEXT NOT NULL,
             publication_year INTEGER
         )
     """)
 
-
+# -----------------------------
+# INSERT DATA
+# -----------------------------
 def insert_books(cursor, books):
     for book in books:
         cursor.execute(
-            "INSERT INTO books (title, author, publication_year) VALUES (?, ?, ?)",
+            """
+            INSERT INTO books (title, author, publication_year)
+            VALUES (?, ?, ?)
+            """,
             (
                 book.get("title"),
                 book.get("author"),
@@ -29,62 +47,47 @@ def insert_books(cursor, books):
             )
         )
 
-
+# -----------------------------
+# FETCH DATA FROM API
+# -----------------------------
 def fetch_books_from_api():
     """
-    Tries to fetch data from API.
-    Falls back to simulated data if API is unavailable.
+    Attempts to fetch data from a real API.
+    Falls back to simulated data if API fails.
     """
     try:
         response = requests.get(API_URL, timeout=5)
         response.raise_for_status()
-        print("Data fetched from real API.")
+        print("✅ Data fetched from real API")
         return response.json()
+
     except Exception:
-        print("API not reachable. Using simulated book data.")
+        print("⚠️ API not reachable. Using simulated data.")
         return [
             {"title": "Clean Code", "author": "Robert C. Martin", "year": 2008},
             {"title": "Deep Learning", "author": "Ian Goodfellow", "year": 2016},
-            {
-                "title": "Designing Data-Intensive Applications",
-                "author": "Martin Kleppmann",
-                "year": 2017
-            }
+            {"title": "Designing Data-Intensive Applications", "author": "Martin Kleppmann", "year": 2017}
         ]
 
-
+# -----------------------------
+# MAIN FUNCTION
+# -----------------------------
 def main():
-    print("Starting Book Data Ingestion Process...\n")
+    conn = sqlite3.connect(DB_PATH)
+    cursor = conn.cursor()
 
-    books_data = fetch_books_from_api()
+    create_table(cursor)
 
-    try:
-        conn = sqlite3.connect(DB_PATH)
-        cursor = conn.cursor()
+    books = fetch_books_from_api()
+    insert_books(cursor, books)
 
-        create_table(cursor)
+    conn.commit()
+    conn.close()
 
-        # Clear old data to avoid duplicate inserts
-        cursor.execute("DELETE FROM books")
+    print("✅ Books data stored successfully in SQLite database")
 
-        insert_books(cursor, books_data)
-        conn.commit()
-
-        print("\nBooks stored successfully. Displaying records:\n")
-
-        for row in cursor.execute(
-            "SELECT title, author, publication_year FROM books"
-        ):
-            print(row)
-
-    except sqlite3.Error as e:
-        print("Database error occurred:", e)
-
-    finally:
-        if conn:
-            conn.close()
-            print("\nDatabase connection closed.")
-
-
+# -----------------------------
+# ENTRY POINT
+# -----------------------------
 if __name__ == "__main__":
     main()
