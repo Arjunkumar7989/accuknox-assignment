@@ -1,0 +1,8 @@
+GitHub Repository Link:
+https://github.com/Arjunkumar7989/Enterprise-Knowledge-Assistant-using-RAG
+
+Description:
+In this project, I worked extensively with structured and semi-structured data stored in databases
+and vector stores. I designed data schemas, managed storage of embeddings, and implemented efficient
+retrieval logic for semantic search. The project involved integrating database-backed retrieval with
+application-level logic, ensuring correctness, performance, and maintainability.

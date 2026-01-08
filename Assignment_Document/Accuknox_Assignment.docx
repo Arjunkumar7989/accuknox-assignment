@@ -1,0 +1,108 @@
+Name: JATAVATH ARJUN KUMAR
+Role Applied: AI/ML Engineer
+
+1. Self-Assessment on LLM, Deep Learning, AI, and ML
+
+Below is my honest self-assessment based on my hands-on experience and current skill level:
+
+Large Language Models (LLMs): A
+I can independently work with LLM-based systems. I have hands-on experience building applications using LLMs, including prompt engineering, response evaluation, and integrating LLMs with external data sources through Retrieval-Augmented Generation (RAG).
+
+Machine Learning (ML): A
+I am comfortable building machine learning models independently using Python. I have worked on supervised learning problems, data preprocessing, feature engineering, model evaluation, and interpretation using libraries such as Scikit-learn.
+
+Artificial Intelligence (AI): B
+I understand core AI concepts and can implement AI-driven solutions under guidance, especially when it involves system-level design decisions or optimization strategies beyond standard ML workflows.
+
+Deep Learning (DL): B
+I have working knowledge of deep learning concepts and frameworks. I can implement models under supervision and understand architectures such as neural networks, but I am still building deeper expertise in designing and tuning complex deep learning systems independently.
+
+Assumption:
+My ratings are based on practical project experience rather than purely theoretical knowledge.
+
+2. High-Level Architecture of an LLM-Based Chatbot
+
+At a high level, an LLM-based chatbot can be designed using the following components:
+
+1. User Interface
+
+This is the entry point where users input their queries. It can be a web interface, chat application, or API endpoint.
+
+2. Input Processing Layer
+
+The user input is cleaned and preprocessed. This may include basic validation, formatting, and intent detection (if required).
+
+3. Context Retrieval (Optional but Important)
+
+If the chatbot needs to answer questions based on specific documents or enterprise data, a retrieval layer is introduced.
+Here, the user query is converted into an embedding and used to retrieve relevant information from a knowledge source.
+
+4. Large Language Model (LLM)
+
+The LLM acts as the core reasoning and language generation engine. It receives the user query along with any retrieved context and generates a natural language response.
+
+5. Post-Processing and Safety Layer
+
+The generated response is validated for quality, relevance, and safety. This layer may also handle formatting, confidence checks, or fallback logic.
+
+6. Response Delivery
+
+The final response is sent back to the user interface.
+
+Overall Flow:
+User Query → Preprocessing → (Optional Retrieval) → LLM → Validation → Response
+
+Assumption:
+The architecture focuses on clarity and reliability rather than highly optimized performance.
+
+3. Vector Databases – Explanation and Selection
+What is a Vector Database?
+
+A vector database is a specialized database designed to store and search high-dimensional vector representations (embeddings). These embeddings capture semantic meaning and are commonly generated from text, images, or other unstructured data using machine learning models.
+
+Unlike traditional databases that rely on exact matches, vector databases enable similarity search using distance metrics such as cosine similarity or Euclidean distance.
+
+Hypothetical Problem
+
+Assume we want to build an internal enterprise chatbot that answers employee questions using company policies, technical documentation, and FAQs.
+
+Why a Vector Database is Needed
+
+Documents are unstructured and large in volume
+
+Keyword search is insufficient for semantic understanding
+
+We need to retrieve the most relevant context for an LLM to reduce hallucinations
+
+Vector Database Choice
+
+For this problem, I would choose a vector database such as FAISS or a managed vector store integrated with an existing search platform.
+
+Reasons:
+
+Efficient similarity search over large embedding collections
+
+Easy integration with Python-based ML pipelines
+
+Scalable for thousands of documents
+
+Suitable for Retrieval-Augmented Generation (RAG) systems
+
+How It Fits in the System
+
+Documents are converted into embeddings
+
+Embeddings are stored in the vector database
+
+User queries are embedded and matched against stored vectors
+
+Relevant document chunks are retrieved and passed to the LLM
+
+This approach improves answer accuracy, relevance, and trustworthiness.
+
+Assumption:
+The choice of vector database depends on system scale, deployment constraints, and integration requirements.
+
+Conclusion
+
+This assignment demonstrates my approach to combining practical implementation with clear assumptions and system-level thinking. I focused on clarity, modularity, and real-world applicability rather than overly complex designs.

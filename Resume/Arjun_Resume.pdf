@@ -1,0 +1,81 @@
+JATAVATH ARJUN KUMAR
+
+📧 arjunkumarjatavath33@gmail.com
+ | 📞 +91-7989233828
+🔗 GitHub: https://github.com/Arjunkumar7989
+
+🔗 LinkedIn: https://linkedin.com/in/jatavath-arjun-kumar-498532304
+
+PROFESSIONAL SUMMARY
+
+AI/ML Engineer with hands-on experience in Python-based data processing, machine learning, and LLM-powered systems. I have worked on real-world projects involving APIs, CSV data, SQLite databases, and Retrieval-Augmented Generation (RAG) pipelines. Comfortable making assumptions when requirements are open-ended and focusing on clean, readable, and practical implementations. Interested in building reliable, secure, and scalable AI-driven solutions.
+
+TECHNICAL SKILLS
+
+Programming: Python, SQL, Git
+
+Databases: SQLite, basic relational design
+
+Data Handling: CSV, JSON, REST APIs
+
+Visualization: Matplotlib
+
+AI / ML: Classification, regression, model evaluation
+
+GenAI & NLP: LLMs, RAG pipelines, embeddings, prompt engineering
+
+Tools: VS Code, GitHub, Docker (basics)
+
+EXPERIENCE
+Generative AI Engineer
+
+Telus Digital | Remote | Sep 2025 – Present
+
+Built and maintained LLM-based automation tools using Python to support multiple internal workflows, reducing manual effort by approximately 40%.
+
+Developed AI assistants for text summarization and query generation, validating outputs across 100+ test scenarios.
+
+Performed structured prompt engineering and evaluation, improving response relevance and consistency.
+
+Designed and implemented Retrieval-Augmented Generation (RAG) pipelines using embeddings and semantic search over large document collections.
+
+Data Science Intern
+
+Codecraf Infotech | Remote | Mar 2024 – May 2024
+
+Collected, cleaned, and processed 12,000+ records using Python (Pandas, NumPy) and SQL.
+
+Built and evaluated supervised ML models using Scikit-learn for internal use cases.
+
+Conducted exploratory data analysis and feature selection to support data-driven decisions.
+
+Created Power BI dashboards to track key business KPIs and improve reporting visibility.
+
+PROJECTS
+API Data Ingestion and SQLite Storage
+
+Implemented Python scripts to retrieve data from REST APIs (with documented assumptions where APIs were unavailable).
+
+Designed SQLite schemas and stored structured data programmatically.
+
+Focused on clean code, error handling, and clear separation between data, database, and logic.
+
+Enterprise Knowledge Assistant using RAG
+
+Built a RAG-based system to answer queries from internal documents using embeddings and semantic retrieval.
+
+Processed and chunked large document sets, generating embeddings for efficient vector search.
+
+Integrated retrieval results with LLM generation to reduce hallucinations and improve answer quality.
+
+Student Score Analysis and Visualization
+
+Processed student score data and calculated aggregate metrics such as averages.
+
+Visualized insights using Python and Matplotlib with a focus on clarity over complex design.
+
+EDUCATION
+
+B.Tech – Civil Engineering
+National Institute of Technology, Warangal
+2021 – 2025

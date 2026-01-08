@@ -1,0 +1,9 @@
+GitHub Repository Link:
+https://github.com/Arjunkumar7989/Enterprise-Knowledge-Assistant-using-RAG
+
+Description:
+This project is my most complex Python-based implementation, where I designed and built an end-to-end
+Retrieval-Augmented Generation (RAG) system. I handled data preprocessing, document chunking,
+embedding generation, semantic retrieval, and LLM-based response generation. The project required
+careful handling of assumptions, error cases, and prompt optimization to ensure reliable and
+consistent outputs.
