@@ -1,27 +1,38 @@
-# AccuKnox AI/ML Assignment – Submission
+# AccuKnox AI/ML Assignment – Problem Statement 1
 
-## Candidate Information
+## Candidate Details
 Name: Jatavath Arjun Kumar  
 Degree: B.Tech – Civil Engineering  
 Institute: NIT Warangal  
 
 ---
 
-## Purpose of This Assignment
-This repository is my submission for the AccuKnox AI/ML assignment.
+## Overview
+This repository contains my solution for **Problem Statement 1** of the AccuKnox AI/ML assignment.
 
-The purpose of this assignment is to demonstrate:
-- Basic Python programming skills
-- Handling data from APIs and CSV files
-- Storing data in a SQLite database
-- Performing simple data processing
-- Visualizing data using Python
+The objective of this assignment is to demonstrate my ability to:
+- Work with external data sources (APIs and CSV files)
+- Store structured data using SQLite
+- Perform basic data processing
+- Visualize data for quick insights
+- Write clean, readable, and explainable Python code
 
-I have focused on keeping the implementation **simple, correct, and easy to understand**, exactly as required by the problem statement.
+I intentionally focused on **building a reliable and clear data pipeline first**, without over-engineering the solution.
 
 ---
 
-## Project Structure Explained
+## Problem Statement Summary
+The assignment consists of three parts:
+
+1. Fetch data from an external REST API and store it in a SQLite database  
+2. Import data from a CSV file into a SQLite database  
+3. Process student score data and visualize it using a bar chart  
+
+Each part is implemented as a separate Python script to maintain clarity and modularity.
+
+---
+
+## Project Structure
 AccuKnox_AI_ML_Assignment
 │
 ├── Problem_Statement_1_Code
@@ -49,120 +60,115 @@ AccuKnox_AI_ML_Assignment
 yaml
 Copy code
 
-Each folder has a specific purpose:
-- **Problem_Statement_1_Code**: All Python scripts related to the assignment
-- **data**: Input CSV file used for database insertion
-- **databse**: SQLite database file created by the scripts
-- **Assignment_Document**: Written explanation and theory answers
-- **GitHub_Links**: Links to my complex Python and database projects
-- **Resume**: Latest resume
-
 ---
 
-## Step-by-Step Explanation of the Code
+## Detailed Implementation Explanation
 
-### Step 1: API Data Retrieval and Storage
+### 1. API Data Retrieval and Storage
 **File:** `api_books_to_sqlite.py`
 
 What this script does:
-1. Tries to fetch book data from an external REST API using Python.
-2. If the API is not reachable, the script uses predefined sample data.
-3. Creates a SQLite database (if it does not already exist).
-4. Creates a table to store book details.
-5. Inserts book data (title, author, publication year) into the database.
+- Attempts to fetch book data from an external REST API
+- Handles API failures gracefully using exception handling
+- Uses fallback sample data when the API is unavailable
+- Stores the data (title, author, publication year) into a SQLite database
 
-Why this step is important:
-- Shows how external data can be collected
-- Demonstrates basic API handling and database storage
+Why this approach:
+- External APIs can be unreliable, so fallback logic keeps the pipeline functional
+- SQLite is sufficient for local testing and small-scale data storage
+- Clear separation between API logic and database logic improves readability
 
 ---
 
-### Step 2: CSV Data Import into SQLite
+### 2. CSV Data Import into SQLite
 **File:** `csv_to_sqlite.py`
 
 What this script does:
-1. Reads user data from a CSV file (`user.csv`).
-2. Connects to the SQLite database.
-3. Creates a table for user information.
-4. Inserts each row from the CSV file into the database.
+- Reads user data from a CSV file
+- Creates a users table in SQLite with basic constraints
+- Inserts CSV data into the database
+- Skips duplicate records using a UNIQUE constraint on email
 
-Why this step is important:
-- CSV to database ingestion is a very common real-world task
-- Demonstrates file handling and database insertion logic
+Why this approach:
+- CSV-to-database ingestion is a common real-world ETL task
+- Database-level constraints help maintain data integrity
+- Exception handling ensures the script does not crash on bad input
 
 ---
 
-### Step 3: Data Processing and Visualization
+### 3. Data Processing and Visualization
 **File:** `student_scores_visualization.py`
 
 What this script does:
-1. Fetches student score data (simulated API source).
-2. Calculates the average score.
-3. Creates a bar chart showing individual student scores.
-4. Displays or saves the chart for visual analysis.
+- Uses simulated student score data
+- Calculates basic statistics (average, minimum, maximum)
+- Visualizes the scores using a bar chart
+- Saves the chart as an image file for reference
 
-Why a bar chart was used:
-- It allows easy comparison between students
-- It clearly shows differences in scores
+Why a bar chart:
+- Makes it easy to compare scores between students
+- The average line helps quickly understand overall performance
 
 ---
 
-## Assumptions Made
-- API responses are in a consistent JSON format
-- SQLite is sufficient for local storage
+## Assumptions
+- External APIs may be unavailable, so simulated data is acceptable
+- SQLite is sufficient for demonstrating database logic
 - Data size is small to moderate
-- No API authentication is required
-- Focus is on correctness rather than large-scale optimization
+- No authentication is required for the APIs
+- Focus is on correctness and clarity rather than production-level optimization
 
 ---
 
-## How to Run This Project (Very Important)
+## How to Run the Code
 
-### Step 1: Install Python
-Ensure Python 3.x is installed on your system.
-
-### Step 2: Install Required Libraries
-Open terminal or command prompt in the project folder and run:
+### Step 1: Install Dependencies
 pip install -r requirements.txt
 
 graphql
 Copy code
 
-### Step 3: Run API to Database Script
+### Step 2: Run API to SQLite Script
 python Problem_Statement_1_Code/api_books_to_sqlite.py
 
-pgsql
+graphql
 Copy code
-This will create the database and insert book data.
 
-### Step 4: Run CSV to Database Script
+### Step 3: Run CSV to SQLite Script
 python Problem_Statement_1_Code/csv_to_sqlite.py
 
-pgsql
+graphql
 Copy code
-This will insert user data from the CSV file into the database.
 
-### Step 5: Run Data Processing and Visualization Script
+### Step 4: Run Data Processing and Visualization Script
 python Problem_Statement_1_Code/student_scores_visualization.py
 
 yaml
 Copy code
-This will calculate the average score and display the bar chart.
 
 ---
 
 ## Technologies Used
-- Python
-- SQLite
-- Requests
-- Pandas
-- Matplotlib
+- Python  
+- SQLite  
+- Requests  
+- Pandas  
+- Matplotlib  
+
+---
+
+## Possible Improvements and Next Steps
+If this system were extended further, I would:
+- Add structured logging instead of print statements
+- Implement retry mechanisms for API failures
+- Perform deeper statistical analysis on the data
+- Integrate a machine learning model once the data pipeline is stable and validated
 
 ---
 
 ## Final Note
-This assignment reflects my current level of understanding of Python, data handling, and basic data analysis.  
-I am continuously improving my skills in AI/ML concepts alongside practical implementation.
+This assignment reflects my current level of understanding of Python-based data handling and basic analytics.  
+I focused on clarity, robustness, and explainability, while keeping clear scope for future AI/ML enhancements.
 
 ---
 
